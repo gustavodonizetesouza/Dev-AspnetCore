@@ -1,0 +1,54 @@
+﻿@model IEnumerable<GeneroModel>
+
+@{
+    ViewData["title"] = "Lista de Generos Cadastros";
+}
+
+<style>
+    .botao-direita {
+        display: flex;
+        justify-content: flex-end;
+    }
+</style>
+
+
+<div class=" container">
+
+    <div class="d-flex justify-content-between align-items-center mb-5">
+        <h1>Generos Cadastrados</h1>
+        <a class="btn btn-success mx-2 botao-direita" asp-controller="Genero" asp-action="Cadastrar">Cadastrar novo genero</a>
+    </div>
+
+    <table id = "Autor" class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col" width="900">Nome</th>
+                <th scope="col">Ações</th>
+
+            </tr>
+        </thead>
+        <tbody>
+
+            @if (Model != null)
+            {
+                @foreach (var cadastro in Model)
+                {
+                    <tr>
+                        <th scope="row">@cadastro.id</th>
+                        <td>@cadastro.nome</td>
+                        <td>
+
+                            <a asp-controller="Genero" asp-action="Editar" asp-route-id="@cadastro.id" class="btn btn-warning mx-2">Editar</a>
+                            <a asp-controller="Genero" asp-action="Excluir" asp-route-id="@cadastro.id" class="btn btn-danger mx-2">Excluir</a>
+
+                        </td>
+
+                    </tr>
+                }
+            }
+
+        </tbody>
+    </table>
+
+</div>

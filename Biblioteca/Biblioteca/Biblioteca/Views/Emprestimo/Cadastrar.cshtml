@@ -1,0 +1,60 @@
+﻿@model EmprestimosModel;
+
+@{
+    ViewData["title"] = "Cadastro de Emprestimos";
+}
+
+<style>
+    .botao-direita {
+        display: flex;
+        justify-content: flex-end;
+    }
+</style>
+
+<div class=" container">
+    <div class="d-flex justify-content-between align-items-center mb-5"></div>
+    <h1>Cadastro de Emprestimo</h1>
+
+    <a class="mx-2 botao-direita"></a>
+
+</div>
+
+<form method="post" asp-controller="Emprestimo" asp-action="Cadastrar" class="row g-3">
+    <div class="col-md-6">
+        <label for="Destino" class="form-label">Destino</label>
+        <input type="text" asp-for="Destino" class="form-control" id="Destino" placeholder="Digite o nome do Destino:">
+        <span class="text-danger" asp-validation-for="Destino"></span>
+
+    </div>
+
+    <div class="col-md-6">
+        <label for="Proprietario" class="form-label">Proprietario</label>
+        <input type="text" asp-for="Proprietario" class="form-control" id="proprietario" placeholder="Digite o nome do Proprietário:">
+        <span class="text-danger" asp-validation-for="Proprietario"></span>
+    </div>
+
+    <div class="col-md-6">
+        <label for="Livro" class="form-label">Livro</label>
+        <input type="text" class="form-control" asp-for="Livro" id="livro" placeholder="Digite o nome do Livro:">
+        <span class="text-danger" asp-validation-for="Livro"></span>
+    </div>
+    <div class="col-md-2">
+        <label for="dataEmprestimo" class="form-label">Data Empréstimo</label>
+        <input type="text" class="form-control" id="dataEmprestimo">
+    </div>
+    <div class="col-md-2">
+        <label for="dataDevolucao" class="form-label">Data Devolução</label>
+        <input type="text" class="form-control" id="DataDevolucao">
+    </div>    
+
+    <div class="col-12">
+        <label for="Observacao" class="form-label">Observação</label>
+        <input type="text" class="form-control" id="Observacao" placeholder="Observação:">
+    </div>
+
+    
+    <div class="col-12">
+        <button type="submit" class="btn btn-primary">Finalizar</button>
+        <a class="btn btn-danger w-20" asp-controller="Emprestimo" asp-action="Index">Cancelar</a>
+    </div>
+</form>

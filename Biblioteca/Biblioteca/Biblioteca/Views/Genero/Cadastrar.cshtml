@@ -1,0 +1,31 @@
+﻿@model GeneroModel
+@{
+    ViewData["title"] = "Cadastro de Generos";
+}
+
+<style>
+    .botao-direita {
+        display: flex;
+        justify-content: flex-end;
+    }
+</style>
+
+<div class=" container">
+    <div class="d-flex justify-content-between align-items-center mb-5"></div>
+    <h1>Cadastro de Generos</h1>
+
+</div>
+
+<form class="row g-3" asp-controller="Genero" asp-action="Cadastrar">
+    <div class="col-md-6">
+        <label for="genero" class="form-label">Descrição</label>
+        <input type="text" asp-for="nome" class="form-control" id="autor" placeholder="Digite o genero:">
+        <span class="text-danger" asp-validation-for="nome"></span>
+    </div>
+
+    <div class="col-12">
+        <button type="submit" class="btn btn-primary">Cadastrar Genero</button>
+        <a class="btn btn-danger w-20" asp-controller="Genero" asp-action="Index">Cancelar Cadastro</a>
+    </div>
+
+</form>

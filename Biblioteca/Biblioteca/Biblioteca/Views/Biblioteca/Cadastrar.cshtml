@@ -1,0 +1,113 @@
+﻿ @model ViewModelBiblioteca;
+
+@{
+    ViewData["title"] = "Cadastro de Livros";   
+ }
+
+<style>
+    .botao-direita {
+        display: flex;
+        justify-content: flex-end;
+    }
+</style>
+
+<div class=" container">
+    <div class="d-flex justify-content-between align-items-center mb-5"></div>
+    <h1>Cadastro de Livros</h1>
+
+    <a class="mx-2 botao-direita"></a>
+    <a class="mx-2 botao-direita"></a>
+
+</div>
+
+<form class="row g-3" method="post" asp-controller="Biblioteca" asp-action="Cadastrar">
+    <div class="col-md-6">
+        <label for="titulo" class="form-label">Título Principal</label>
+        <input type="text" asp-for="Biblioteca.titulo" class="form-control" id="titulo" placeholder="Digite o nome do Livro:">
+        <span class="text-danger" asp-validation-for="Biblioteca.titulo"></span>
+
+    </div>
+    <div class="col-md-6">
+        <label for="subtitulo" class="form-label">Sub Título</label>
+        <input type="text" asp-for="Biblioteca.subtitulo" class="form-control" id="subtitulo" placeholder="Digite subtitulo do livro:">
+       
+    </div>
+    <div class="col-md-4">
+        <label for="autor" class="form-label">Autor</label>
+        <select id="autor" class="form-select">
+            <option selected>Escolha o autor...</option>           
+            @*
+            @foreach (var autor in Model.Autores)
+            {
+                <option value="@autor.id">@autor.nome</option>
+            }
+           *@
+        </select>
+    </div>
+
+    <div class="col-md-2">
+        <label for="edicao" class="form-label">Edição</label>
+        <input type="text" class="form-control" id="edicao" placeholder="Digite a Edição do Livro:">
+
+    </div>
+
+    <div class="col-md-2">
+        <label for="ano" class="form-label">Ano</label>
+        <input type="text" class="form-control" id="ano" placeholder="Digite o ano de publicação:">
+    </div>
+
+    <div class="col-md-2">
+        <label for="editora" class="form-label">Editora</label>
+        <select id="editora" class="form-select">
+            <option selected>Escolha a editora...</option>
+            @*
+            @foreach (var editora in Model.Editoras)
+            {
+                <option value="@editora.id">@editora.nome</option>
+            }
+           *@
+        </select>
+    </div>
+
+    <div class="col-md-2">
+        <label for="genero" class="form-label">Genero</label>
+        <select id="genero" class="form-select">
+            <option selected>Escolha o genero...</option>
+            @*
+            @foreach (var genero in Model.Generos)
+            {
+                <option value="@genero.id">@genero.nome</option>
+            }
+            *@
+        </select>
+    </div>
+
+    <div class="col-4">
+        <label for="data" class="form-label">Data Compra</label>
+        <input type="date" class="form-control" id="data" placeholder="Insira a data de compra:">
+    </div>   
+
+    <div class="col-4">
+        <label for="valor" class="form-label">Valor Livro</label>
+        <input type="number" class="form-control" id="valor" step="0.01" min="0" placeholder="0,00">
+    </div>
+
+    <div class="col-12">
+        <label for="observacao" class="form-label">Observação</label>
+        <input type="text" class="form-control" id="obervacao" placeholder="Obersevação">
+    </div>   
+
+    <div class="col-12">
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="emprestimo">
+            <label class="form-check-label" for="emprestimo">
+                Bloqueia de Empréstimo
+            </label>
+        </div>
+    </div>
+
+    <div class="col-12">
+        <button type="submit" class="btn btn-primary">Cadastrar Livro</button>
+        <a class="btn btn-danger w-20" asp-controller="Biblioteca" asp-action="Index">Cancelar</a>
+    </div>
+</form>

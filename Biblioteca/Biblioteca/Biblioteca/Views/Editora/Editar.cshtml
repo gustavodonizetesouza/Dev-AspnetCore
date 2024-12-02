@@ -1,0 +1,33 @@
+﻿@model EditoraModel
+@{
+    ViewData["title"] = "Alterar Cadastro de Editora";
+}
+
+<style>
+    .botao-direita {
+        display: flex;
+        justify-content: flex-end;
+    }
+</style>
+
+<div class=" container">
+    <div class="d-flex justify-content-between align-items-center mb-5"></div>
+    <h1>Alteração do Cadastro de Editoras</h1>
+
+</div>
+
+<form class="row g-3" asp-controller="Editora" asp-action="Editar">
+    <input type="hidden" asp-for="id" />
+
+    <div class="col-md-6">
+        <label for="editora" class="form-label">Nome Editora</label>
+        <input type="text" asp-for="nome" class="form-control" id="editora" placeholder="Digite o nome da editora:">
+        <span class="text-danger" asp-validation-for="nome"></span>
+    </div>
+
+    <div class="col-12">
+        <button type="submit" class="btn btn-primary">Alterar Editora</button>
+        <a class="btn btn-danger w-20" asp-controller="Autor" asp-action="Index">Cancelar Alteração</a>
+    </div>
+
+</form>

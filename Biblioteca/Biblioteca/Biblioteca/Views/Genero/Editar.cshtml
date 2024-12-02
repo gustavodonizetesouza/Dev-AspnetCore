@@ -1,0 +1,33 @@
+﻿@model GeneroModel
+@{
+    ViewData["title"] = "Alterar Cadastro de Genero";
+}
+
+<style>
+    .botao-direita {
+        display: flex;
+        justify-content: flex-end;
+    }
+</style>
+
+<div class=" container">
+    <div class="d-flex justify-content-between align-items-center mb-5"></div>
+    <h1>Alteração do Cadastro de Genero</h1>
+
+</div>
+
+<form class="row g-3" asp-controller="Genero" asp-action="Editar">
+    <input type="hidden" asp-for="id" />
+
+    <div class="col-md-6">
+        <label for="genero" class="form-label">Nome Genero</label>
+        <input type="text" asp-for="nome" class="form-control" id="genero" placeholder="Digite o nome:">
+        <span class="text-danger" asp-validation-for="nome"></span>
+    </div>
+
+    <div class="col-12">
+        <button type="submit" class="btn btn-primary">Alterar Genero</button>
+        <a class="btn btn-danger w-20" asp-controller="Genero" asp-action="Index">Cancelar Alteração</a>
+    </div>
+
+</form>

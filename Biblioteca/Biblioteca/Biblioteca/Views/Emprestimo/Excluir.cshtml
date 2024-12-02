@@ -1,0 +1,65 @@
+﻿@model EmprestimosModel;
+
+@{
+    ViewData["title"] = "Excluir Emprestimos";
+}
+
+<style>
+    .botao-direita {
+        display: flex;
+        justify-content: flex-end;
+    }
+</style>
+
+<div class=" container">
+    <div class="d-flex justify-content-between align-items-center mb-5"></div>
+    <h1>Excluir o Emprestimo</h1>
+
+    <a class="mx-2 botao-direita"></a>
+
+</div>
+
+
+<form method="post" asp-asp-controller="Emprestimo" asp-action="Excluir" class="row g-3">
+    <input type="hidden" asp-for="Id" />
+
+    <h2 class="text-warning"> Tem certeza que deseja excluir o registro? </h2>
+
+    <div class="col-md-6">
+        <label for="Destino" class="form-label">Destino</label>
+        <input type="text" asp-for="Destino" class="form-control" id="Destino" placeholder="Digite o nome do Destino:" disabled>
+        <span class="text-danger" asp-validation-for="Destino"></span>
+
+    </div>
+
+    <div class="col-md-6">
+        <label for="Proprietario" class="form-label">Proprietario</label>
+        <input type="text" asp-for="Proprietario" class="form-control" id="proprietario" placeholder="Digite o nome do Proprietário:" disabled>
+        <span class="text-danger" asp-validation-for="Proprietario"></span>
+    </div>
+
+    <div class="col-md-6">
+        <label for="Livro" class="form-label">Livro</label>
+        <input type="text" class="form-control" asp-for="Livro" id="livro" placeholder="Digite o nome do Livro:" disabled>
+        <span class="text-danger" asp-validation-for="Livro"></span>
+    </div>
+    <div class="col-md-2">
+        <label for="data_emprestimo" class="form-label">Data Empréstimo</label>
+        <input type="text" asp-for="data_emprestimo" class="form-control" id="data_emprestimo" disabled>
+    </div>
+    <div class="col-md-2">
+        <label for="dataDevolucao" class="form-label">Data Devolução</label>
+        <input type="text" class="form-control" id="DataDevolucao">
+    </div>
+
+    <div class="col-12">
+        <label for="Observacao" class="form-label">Observação</label>
+        <input type="text" class="form-control" id="Observacao" placeholder="Observação:" disabled>
+    </div>
+
+
+    <div class="col-12">
+        <button type="submit" class="btn btn-primary">Finalizar</button>
+        <a class="btn btn-danger w-20" asp-controller="Emprestimo" asp-action="Index">Cancelar</a>
+    </div>
+</form>
